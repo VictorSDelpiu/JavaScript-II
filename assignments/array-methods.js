@@ -57,95 +57,71 @@ const runners = [
 
 // ==== Challenge 1: Use .forEach() ====
 // The event director needs both the first and last names of each runner for their running bibs. Combine both the first and last names and populate a new array called `fullNames`. This array will contain just strings.
+/*let fullNames = [];
+
+console.log(fullNames);*/
+
 let fullNames = [];
-runners.forEach(runner => {
-  fullName.push(`${runner.first_name} ${runner.last_name}`);
-});
-console.log(fullNames);
+runners.forEach((object)=> {
+  let name = object.first_name + " " + object.last_name;
+  fullNames.push(name);
+  
+})
+fullNames.sort();
+console.log(JSON.stringify(fullNames));
+
 
 // ==== Challenge 2: Use .map() ====
-// The event director needs to have all the runners' first names in uppercase because the director BECAME DRUNK WITH POWER. Populate an array called `firstNamesAllCaps`. This array will contain just strings.
-let firstNamesAllCaps = [];
-runners.map((runner, index) => {
-  allCaps[index] = runner.first_name.toUpperCase();
-})
+// The event director needs to have all the runners' first names in uppercase because the director BECAME DRUNK WITH POWER. Populate an array called `firstNamesfirstNamesAllCaps`. This array will contain just strings.
+
+let firstNamesAllCaps = [];	
+const changeuppercase = (str)=> {
+return str.toUpperCase();
+}
+firstNamesAllCaps = fullNames.map(changeuppercase)
 console.log(firstNamesAllCaps);
+
+
 
 // ==== Challenge 3: Use .filter() ====
 // The large shirts won't be available for the event due to an ordering issue. We need a filtered version of the runners array, containing only those runners with large sized shirts so they can choose a different size. This will be an array of objects.
+/*let runnersLargeSizeShirt = [];
+
+console.log(runnersLargeSizeShirt);
+*/
 let runnersLargeSizeShirt = [];
-largeShirts = runners.filter(runner => {
-  if (runner.shirt_size === 'L') {
-return runner;
+const largeSized = (object) => {
+  return object.shirt_size === "L"
 }
-});
+runnersLargeSizeShirt = runners.filter(largeSized)
 console.log(runnersLargeSizeShirt);
 
 // ==== Challenge 4: Use .reduce() ====
 // The donations need to be tallied up and reported for tax purposes. Add up all the donations and save the total into a ticketPriceTotal variable.
-let ticketPriceTotal = 0;
-ticketPriceTotal = runners.reduce((totalValue, runner) => {
-  return totalValue + runner.donation;
-}, 0);
+/*let ticketPriceTotal = 0;
+
+console.log(ticketPriceTotal);
+*/
+
+let ticketPriceTotal = [];
+const calc = (acc, donate) =>
+  {return acc + donate;}
+runners.forEach(function (object) {
+  ticketPriceTotal.push(object.donation)})
+
+ticketPriceTotal = ticketPriceTotal.reduce(calc)
 console.log(ticketPriceTotal);
 
 // ==== Challenge 5: Be Creative ====
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
 // Problem 1
-const students = [
-  {
-      name: 'Estella Shanae',
-      age: 24,
-      phone: '(215)34-5676',
-      id: 1
-  },
-
-  {
-      name: 'Frankie Davina',
-      age: 28,
-      phone: '(215)17-5171',
-      id: 2
-  },
-  {
-      name: 'Cheri Sally',
-      age: 33,
-      phone: '(215)22-5676',
-      id: 3
-  }
-]
-
-// Problem 2	// Problem 2
 
 
-const studentNamesPhones = [];
+// Problem 2	
 
-students.forEach(student => {
-  return studentNamesPhones.push(`Name: "${student.name}" Phone number: ${student.phone}`);
-})
-
-console.log(studentNamesPhones);
-
-
-
-
-// Problem 3 	let averageStudentAge = [];
-
-averageStudentAge = students.reduce((averageAge, student) => {
-  return averageAge + student.age;
-}, 0);
-averageStudentAge = Math.floor(averageStudentAge/students.length);
-console.log(averageStudentAge);
 
 // Problem 3
-
-let studentsOver30 = students.filter(student => {
-  if (student.age > 30) {
-      return student;
-  }
-});
-
-console.log(studentsOver30); 
 
 
 
